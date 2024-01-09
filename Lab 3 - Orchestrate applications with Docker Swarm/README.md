@@ -1,6 +1,7 @@
 # Lab 3 Summary
 
 Sourced from : https://apps.cognitiveclass.ai/learning/course/course-v1:IBMDeveloperSkillsNetwork+CO0101EN+v1/home
+
 Edited by G.Blanch
 
 In this lab, you got an introduction to problems that come with **running containers in production**, such as **scheduling services across distributed nodes**, **maintaining high availability, implementing** **reconciliation, scaling, and logging**. You used the orchestration tool that comes built-in to the Docker Engine, **Docker Swarm**, to address some of these issues.
