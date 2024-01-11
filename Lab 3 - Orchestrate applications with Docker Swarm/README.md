@@ -10,7 +10,7 @@ Remember these key points:
 
 - Docker Swarm schedules services by using a **declarative language**. You declare the state, and the swarm *attempts to maintain and reconcile to make sure the actual state equals the desired state*.
 - Docker Swarm is composed of **manager** and **worker nodes**. Only managers can maintain the state of the swarm and accept commands to modify it. Workers have high scalability and are only used to run containers. By default, managers can also run containers.
-- The routing mesh built into Docker Swarm means that *any port that is published at the service level will be exposed on every node* in the swarm. Requests to a published service port will be automatically routed to a container of the service that is running in the swarm.
+- The **routing mesh** built into Docker Swarm means that *any port that is published at the service level will be exposed on every node* in the swarm. Requests to a published service port will be automatically routed to a container of the service that is running in the swarm.
 - You can use other tools to help solve problems with **orchestrated, containerized applications in production**, including Docker Swarm and the IBM Cloud Kubernetes Service.
 
 
@@ -82,7 +82,7 @@ Let's do a simple example using **NGINX**. For now, you will create a service wi
 
             $ docker service create --detach=true --name nginx1 --publish 80:80  --mount source=/etc/hostname,target=/usr/share/nginx/html/index.html,type=bind,ro nginx:1.12 pgqdxr41dpy8qwkn6qm7vke0q
 
-    This command statement is declarative, and Docker Swarm will try to maintain the state declared in this command unless explicitly changed by another `docker service` command. This behavior is useful when nodes go down, for example, and containers are automatically rescheduled on other nodes. You will see a demonstration of that a little later in this lab.
+    This **command statement** is **declarative**, and Docker Swarm will try to maintain the state declared in this command unless explicitly changed by another `docker service` command. This behavior is useful when nodes go down, for example, and containers are automatically rescheduled on other nodes. You will see a demonstration of that a little later in this lab.
 
     The `--mount` flag is useful to have NGINX print out the hostname of the node it's running on. You will use this later in this lab when you start load balancing between multiple containers of NGINX that are distributed across different nodes in the cluster and you want to see which node in the swarm is serving the request.
 
