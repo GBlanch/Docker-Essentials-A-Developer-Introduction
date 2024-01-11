@@ -5,6 +5,9 @@ Edited by G.Blanch
 
 Containers are just a process (or a group of processes) running in isolation, which is achieved with Linux namespaces and control groups. Linux namespaces and control groups are features that are built into the Linux kernel. Other than the Linux kernel itself, there is nothing special about containers.
 
+![image](https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/assets/136500426/10e9c5b8-e642-45a3-8536-1fe977547ff0)
+
+
 What makes containers useful is the tooling that surrounds them. The labs in this course use Docker, which has been the understood standard tool for using containers to build applications. Docker provides developers and operators with a friendly interface to build, ship, and run containers on any environment.
 
 In the first part of this lab, run your first container, and learn how to inspect it. You will be able to witness the namespace isolation that you acquire from the Linux kernel.
