@@ -199,7 +199,7 @@ Completing this lab creates several running containers on your host. Now, you'll
 
             $ docker container stop [container id]
 
-- You can also use the names of the containers that you specified before:
+   You can also use the names of the containers that you specified before:
 
             $ docker container stop d67 ead af5
             d67
