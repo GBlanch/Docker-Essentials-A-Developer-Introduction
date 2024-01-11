@@ -222,4 +222,4 @@ Completing this lab creates several running containers on your host. Now, you'll
 
             $ docker system prune
 
-<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_remove2.png">
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_remove_2.png">
