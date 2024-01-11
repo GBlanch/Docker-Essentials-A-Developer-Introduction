@@ -130,7 +130,7 @@ It is recommended to use Docker Personal edition for this lab practice.
 
             $ docker container run --detach --publish 8080:80 --name nginx nginx
 
-<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_multiple1.png">
+        <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_multiple1.png">
 
 You are using a couple of new flags here. The --detach flag will run this container in the background. The publish flag publishes port 80 in the container (the default port for NGINX) by using port 8080 on your host. Remember that the NET namespace gives processes of the container their own network stack. The --publish flag is a feature that can expose networking through the container onto the host.
 
