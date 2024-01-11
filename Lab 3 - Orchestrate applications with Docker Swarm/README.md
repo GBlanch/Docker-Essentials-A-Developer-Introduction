@@ -69,6 +69,7 @@ All docker service commands for the rest of this lab need to be executed on the 
 &nsbp;
 &nsbp;
 
+
 [Go back to Index](#Index)
 ### Deploy your first service
 
