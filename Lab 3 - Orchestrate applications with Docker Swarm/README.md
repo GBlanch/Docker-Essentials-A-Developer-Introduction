@@ -136,7 +136,9 @@ In production, you might need to handle large amounts of traffic to your applica
 After a few seconds, you should see that the swarm did its job and successfully started 9 more containers. Notice that the containers are scheduled across all three nodes of the cluster. The default placement strategy that is used to decide where new containers are to be run is the emptiest node, but that can be changed based on your needs.
 
             $ docker service ps nginx1
-            (screenshot)
+
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%203%20-%20Orchestrate%20applications%20with%20Docker%20Swarm/assets/lab3-scale_1.png">
+
 
 3. Send a lot of requests to http://localhost:80.
 
@@ -164,7 +166,9 @@ After a few seconds, you should see that the swarm did its job and successfully 
     Another easy way to see which nodes those requests were routed to is to check the aggregated logs. You can get aggregated logs for the service by using the command `docker service logs [service name]`. This aggregates the output from every running container, that is, the output from `docker container logs [container name]`.
 
                 $ docker service logs nginx1
-                (screenshot)
+
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%203%20-%20Orchestrate%20applications%20with%20Docker%20Swarm/assets/lab3-scale_2.png">
+
 
 
     Based on these logs, you can see that each request was served by a different container.
@@ -192,7 +196,8 @@ Now that you have your service deployed, you'll see a release of your applicatio
 
             $ docker service ps nginx1
 
-            (screenshot)
+
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%203%20-%20Orchestrate%20applications%20with%20Docker%20Swarm/assets/lab3-rolling_updates_1.png">
 
 
     You have successfully updated your application to the latest version of NGINX.
@@ -220,7 +225,8 @@ You are going to remove a node and see tasks of your nginx1 service be reschedul
 
     This command should create output like this:
 
-    (screenshot)
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%203%20-%20Orchestrate%20applications%20with%20Docker%20Swarm/assets/lab3-reconcile_1.png">
+
 
 
 3. Press **Ctrl+C** to return to command prompt.
@@ -233,5 +239,6 @@ You are going to remove a node and see tasks of your nginx1 service be reschedul
 
 5. Click node1 to watch the reconciliation in action. You should see that the swarm attempts to get back to the declared state by rescheduling the containers that were running on node3 to node1 and node2             automatically.
 
-    (screenshot)
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%203%20-%20Orchestrate%20applications%20with%20Docker%20Swarm/assets/lab3-reconcile_2.png">
+
 
