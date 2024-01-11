@@ -58,11 +58,13 @@ Remember these key points:
             x223z25t7y7o4np3uq45d49br     node2               Ready               Active
             zdqbsoxa6x1bubg3jyjdmrnrn *   node1               Ready               Active              Leader
 
-This command outputs the three nodes in your swarm. The asterisk (*) next to the ID of the node represents the node that handled that specific command (docker node ls in this case).
+   This command outputs the three nodes in your swarm. The asterisk (*) next to the ID of the node represents the node that handled that specific command (docker 
+   node ls in this case).
 
-Your node consists of one manager node and two workers nodes. Managers handle commands and manage the state of the swarm. Workers cannot handle commands and are simply used to run containers at scale. By default, managers are also used to run containers.
+   Your node consists of one manager node and two workers nodes. Managers handle commands and manage the state of the swarm. Workers cannot handle commands and 
+   are simply used to run containers at scale. By default, managers are also used to run containers.
 
-All docker service commands for the rest of this lab need to be executed on the manager node (Node1).
+   All docker service commands for the rest of this lab need to be executed on the manager node (Node1).
 
 **Note**: Although you control the swarm directly from the node in which its running, you can control a Docker swarm remotely by connecting to the Docker Engine of the manager by using the remote API or by activating a remote host from your local Docker installation (using the `$DOCKER_HOST` and `$DOCKER_CERT_PATH` environment variables). This will become useful when you want to remotely control production applications, instead of using SSH to directly control production servers.
 
