@@ -16,15 +16,15 @@ Remember these key points:
 
 ## Index
 
-[Create your first swarm](#create-your-first-swarm)
+- [Create your first swarm](#create-your-first-swarm)
+ 
+- [Deploy your first service](#deploy-your-first-service)
 
-[Deploy your first service](#deploy-your-first-service)
+- [Scale your service](#scale-your-service)
 
-[Scale your service](#scale-your-service)
+- [Apply rolling updates](#apply-rolling-updates)
 
-[Apply rolling updates](#apply-rolling-updates)
-
-[Reconcile problems with containers](#reconcile-problems-with-containers)
+- [Reconcile problems with containers](#reconcile-problems-with-containers)
 
 
 ### Create your first swarm
