@@ -71,7 +71,7 @@ Use the Docker CLI to run your first container.
 
 4. From the same terminal, inspect the running processes:
 
-                        $ ps -ef
+                $ ps -ef
 
 <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first4.png">
 
