@@ -130,8 +130,7 @@ It is recommended to use Docker Personal edition for this lab practice.
 
             $ docker container run --detach --publish 8080:80 --name nginx nginx
 
-<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first4.png">
-
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_multiple1.png">
 
 You are using a couple of new flags here. The --detach flag will run this container in the background. The publish flag publishes port 80 in the container (the default port for NGINX) by using port 8080 on your host. Remember that the NET namespace gives processes of the container their own network stack. The --publish flag is a feature that can expose networking through the container onto the host.
 
@@ -145,21 +144,18 @@ NGINX is a lightweight web server. You can access it on port 8080 on your localh
 
 3. Access the NGINX server on http://localhost:8080.
 
-<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first5.png">
-
-
 4. Run a MongoDB server. You will use the official MongoDB image from the Docker Store. Instead of using the latest tag (which is the default if no tag is specified), use a specific version of the Mongo image: 3.4.
 
             $ docker container run --detach --publish 8081:27017 --name mongo mongo:3.4
 
- (image)
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first3.png">
 
 
   Again, because this is the first time you are running a Mongo container, pull the Mongo image from the Docker Store. You use the --publish flag to expose the 27017 Mongo port on your host. You must use a port other than 8080 for the host mapping because that port is already exposed on your host. See the documentation on the Docker Store to get more information about using the Mongo image.
 
 5. Access http://localhost:8081 to see some output from Mongo.
 
-(screenshot)
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_multiple4.png">
 
 6. Check your running containers:
 
