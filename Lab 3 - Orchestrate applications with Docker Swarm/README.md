@@ -67,8 +67,9 @@ All docker service commands for the rest of this lab need to be executed on the 
 **Note**: Although you control the swarm directly from the node in which its running, you can control a Docker swarm remotely by connecting to the Docker Engine of the manager by using the remote API or by activating a remote host from your local Docker installation (using the `$DOCKER_HOST` and `$DOCKER_CERT_PATH` environment variables). This will become useful when you want to remotely control production applications, instead of using SSH to directly control production servers.
 
 
-&nsbp;
-&nsbp;
+&nbsp;    
+&nbsp;  
+
 
 
 [Go back to Index](#Index)
