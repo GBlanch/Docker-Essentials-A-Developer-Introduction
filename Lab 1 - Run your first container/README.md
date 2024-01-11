@@ -67,7 +67,7 @@ Use the Docker CLI to run your first container.
 
       Notice the change in the prefix of your terminal, for example,  `root@b3ad2a23fab3:/`. This is an indication that you are running bash inside the container.
 
-Tip: This is not the same as using ssh to a separate host or a VM. You don't need an ssh server to connect with a bash process. Remember that <ins>containers use kernel-level features to achieve isolation and that containers run on top of the kernel. Your container is just a group of processes running in isolation on the same host,</ins> and you can use the command `docker container exec` to enter that isolation with the bash process. After you run the command `docker container exec`, the group of processes running in isolation (in other words, the container) includes <ins>top and bash.</ins>
+  Tip: This is not the same as using ssh to a separate host or a VM. You don't need an ssh server to connect with a bash process. Remember that <ins>containers use kernel-level features to achieve isolation and that containers run on top of the kernel. Your container is just a group of processes running in isolation on the same host,</ins> and you can use the command `docker container exec` to enter that isolation with the bash process. After you run the command `docker container exec`, the group of processes running in isolation (in other words, the container) includes <ins>top and bash.</ins>
 
 5. From the same terminal, inspect the running processes:
 
