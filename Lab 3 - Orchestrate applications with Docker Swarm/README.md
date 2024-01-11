@@ -66,7 +66,7 @@ All docker service commands for the rest of this lab need to be executed on the 
 
 **Note**: Although you control the swarm directly from the node in which its running, you can control a Docker swarm remotely by connecting to the Docker Engine of the manager by using the remote API or by activating a remote host from your local Docker installation (using the `$DOCKER_HOST` and `$DOCKER_CERT_PATH` environment variables). This will become useful when you want to remotely control production applications, instead of using SSH to directly control production servers.
 
-[Go back to Index](#Index)
+[Back to Index](#Index)
 &nbsp;    
 &nbsp;  
 
@@ -115,7 +115,7 @@ Let's do a simple example using **NGINX**. For now, you will create a service wi
 
     Curling will output the hostname where the container is running. For this example, it is running on node1, but yours might be different.
 
-[Go back to Index](#Index)
+[Back to Index](#Index)
 &nbsp;    
 &nbsp;  
 ### Scale your service
@@ -180,7 +180,7 @@ After a few seconds, you should see that the swarm did its job and successfully 
 
     In addition to seeing whether the request was sent to node1, node2, or node3, you can also see which container on each node that it was sent to. For example, nginx1.5 means that request was sent to a container with that same name as indicated in the output of the command docker service ps nginx1.
 
-[Go back to Index](#Index)
+[Back to Index](#Index)
 &nbsp;    
 &nbsp;  
 
@@ -210,10 +210,10 @@ Now that you have your service deployed, you'll see a release of your applicatio
 
     You have successfully updated your application to the latest version of NGINX.
 
-
-[Go back to Index](#Index)
+[Back to Index](#Index)
 &nbsp;    
 &nbsp;  
+
 ### Reconcile problems with containers
 
 In the previous section, you updated the state of your service by using the command `docker service update`. You saw Docker Swarm in action as it recognized the mismatch between desired state and actual state, and attempted to solve the issue.
