@@ -75,7 +75,7 @@ Use the Docker CLI to run your first container.
 
 <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first4.png">
 
-You should see only the `top` process, `bash` process, and your `ps` process. PID is just one of the Linux namespaces that provides containers with isolation to system resources.
+  You should see only the `top` process, `bash` process, and your `ps` process. PID is just one of the Linux namespaces that provides containers with isolation to system resources.
 
 Other Linux namespaces include:
 
