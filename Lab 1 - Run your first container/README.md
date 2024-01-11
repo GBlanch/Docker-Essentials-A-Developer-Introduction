@@ -164,8 +164,8 @@ NGINX is a lightweight web server. You can access it on port 8080 on your localh
 
             $ docker container ls 
 
-(screenshot)
 
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_multiple5.png">
 
    You should see that you have an NGINX web server container and a MongoDB container running on your host. Note that you have not configured these containers to 
    talk to each other.
