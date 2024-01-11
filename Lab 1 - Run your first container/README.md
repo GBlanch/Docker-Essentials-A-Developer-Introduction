@@ -39,12 +39,11 @@ Use the Docker CLI to run your first container.
 
       You use the `docker container run` command to run a container with the Ubuntu image by using the `top` command. The `-t` flag allocates a pseudo-TTY, which you need for the `top` command to work correctly.
 
-      (screenshot)
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first1.png">
 
-      The `docker run` command first starts a `docker pull` to download the Ubuntu image onto your host. After it is downloaded, it will start the container. The output for the running container should look like       this:
+  The `docker run` command first starts a `docker pull` to download the Ubuntu image onto your host. After it is downloaded, it will start the container. The output for the running container should look like this:
 
-(screenshot)
-
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first2.png">
 
 `top` is a Linux utility that prints the processes on a system and orders them by resource consumption. Notice that there is only a single process in this output: it is the `top` process itself. You don't see other processes from the host in this list because of the PID namespace isolation.
 
@@ -56,8 +55,7 @@ Even though we are using the Ubuntu image, it is important to note that <ins>the
 
                 docker container ls 
 
-(screenshot)
-        
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first3.png">
 
 
 3. Use that container ID to run `bash` inside that container by using the docker `container exec command`. Because you are using bash and want to interact with this container from your terminal, use the `-it` flag followed by the container_ID to run using interactive mode while allocating a psuedo-terminal:
@@ -74,20 +72,22 @@ Tip: This is not the same as using ssh to a separate host or a VM. You don't nee
 5. From the same terminal, inspect the running processes:
 
                 $ ps -ef
-                
-      You should see only the `top` process, `bash` process, and your `ps` process. PID is just one of the Linux namespaces that provides containers with isolation to system resources.
 
-      Other Linux namespaces include:
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first4.png">
 
-      - MNT: Mount and unmount directories without affecting other namespaces.
-      - NET: Containers have their own network stack.
-      - IPC: Isolated interprocess communication mechanisms such as message queues.
-      - User: Isolated view of users on the system.
-      - UTC: Set hostname and domain name per container.
-      
-      These namespaces provide the isolation for containers that allow them to run together securely and without conflict with other containers running on the same system.
+  You should see only the `top` process, `bash` process, and your `ps` process. PID is just one of the Linux namespaces that provides containers with isolation to system resources.
+  
+  Other Linux namespaces include:
+  
+  - MNT: Mount and unmount directories without affecting other namespaces.
+  - NET: Containers have their own network stack.
+  - IPC: Isolated interprocess communication mechanisms such as message queues.
+  - User: Isolated view of users on the system.
+  - UTC: Set hostname and domain name per container.
+  
+  These namespaces provide the isolation for containers that allow them to run together securely and without conflict with other containers running on the same system.
 
-6. For comparison, exit the container and run `ps -ef` or `top` on the host. These commands will work on Linux or Mac. For Windows, you can inspect the running processes by using `tasklist`.
+5. For comparison, exit the container and run `ps -ef` or `top` on the host. These commands will work on Linux or Mac. For Windows, you can inspect the running processes by using `tasklist`.
 
                 root@b3ad2a23fab3:/# exit 
                 exit
@@ -126,7 +126,8 @@ It is recommended to use Docker Personal edition for this lab practice.
 
             $ docker container run --detach --publish 8080:80 --name nginx nginx
 
-(screenshot)
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first4.png">
+
 
   You are using a couple of new flags here. The --detach flag will run this container in the background. The publish flag publishes port 80 in the container (the default port for NGINX) by using port 8080 on your host. Remember that the NET namespace gives processes of the container their own network stack. The --publish flag is a feature that can expose networking through the container onto the host.
   
@@ -140,7 +141,7 @@ It is recommended to use Docker Personal edition for this lab practice.
 
 3. Access the NGINX server on http://localhost:8080.
 
-(screenshot)
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first5.png">
 
 
 4. Run a MongoDB server. You will use the official MongoDB image from the Docker Store. Instead of using the latest tag (which is the default if no tag is specified), use a specific version of the Mongo image: 3.4.
