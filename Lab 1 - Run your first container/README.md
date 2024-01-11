@@ -17,6 +17,8 @@ After you run your first container, you can explore other uses of docker contain
 
 You will use a few Docker commands in this lab. If interested, see the full documentation on available commands.
 
+### [Docker Cheat Sheet](https://docs.docker.com/get-started/docker_cheatsheet.pdf)
+
 
 ## Index
 
