@@ -41,8 +41,8 @@ Use the Docker CLI to run your first container.
 
 <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first1.png">
 
-  The `docker run` command first starts a `docker pull` to download the Ubuntu image onto your host. After it is downloaded, it will start the container. The     
-  output for the running container should look like this:
+The `docker run` command first starts a `docker pull` to download the Ubuntu image onto your host. After it is downloaded, it will start the container. The     
+output for the running container should look like this:
 
 <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first2.png">
 
