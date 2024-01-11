@@ -207,7 +207,7 @@ Completing this lab creates several running containers on your host. Now, you'll
             af5
 
 
-**Tip**: You need to enter only enough digits of the ID to be unique. Three digits is typically adequate.
+   **Tip**: You need to enter only enough digits of the ID to be unique. Three digits is typically adequate.
 
 3. Remove the stopped containers. The following command removes any stopped containers, unused volumes and networks, and dangling images:
 
