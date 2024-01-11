@@ -92,15 +92,18 @@ These namespaces provide the isolation for containers that allow them to run tog
                 root@b3ad2a23fab3:/# exit 
                 exit
 
-In the next lab, you'll see different uses of containers and the benefit of isolation as you run multiple containers on the same host.
+ In the next lab, you'll see different uses of containers and the benefit of isolation as you run multiple containers on the same host.
 
-**Tip**: Namespaces are a feature of the Linux kernel. However, Docker allows you to run containers on Windows and Mac. The secret is that embedded in the Docker product is a Linux subsystem. Docker open-sourced this Linux subsystem to a new project: LinuxKit. Being able to run containers on many different platforms is one advantage of using the Docker tooling with containers.
+ **Tip**: Namespaces are a feature of the Linux kernel. However, Docker allows you to run containers on Windows and Mac. The secret is that embedded in the Docker 
+ product is a Linux subsystem. Docker open-sourced this Linux subsystem to a new project: LinuxKit. Being able to run containers on many different platforms is 
+ one advantage of using the Docker tooling with containers.
 
-In addition to running Linux containers on Windows by using a Linux subsystem, native Windows containers are now possible because of the creation of container primitives on the Windows operating system. Native Windows containers can be run on Windows 10 or Windows Server 2016 or later.
+ In addition to running Linux containers on Windows by using a Linux subsystem, native Windows containers are now possible because of the creation of container 
+ primitives on the Windows operating system. Native Windows containers can be run on Windows 10 or Windows Server 2016 or later.
 
 6. Clean up the container running the top processes:
 
-            <ctrl>-c
+        <ctrl>-c
 
 
 [Back to Index](#Index)
