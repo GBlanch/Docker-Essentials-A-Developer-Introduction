@@ -176,9 +176,9 @@ After a few seconds, you should see that the swarm did its job and successfully 
 
 
 
-    Based on these logs, you can see that each request was served by a different container.
+Based on these logs, you can see that each request was served by a different container.
 
-    In addition to seeing whether the request was sent to node1, node2, or node3, you can also see which container on each node that it was sent to. For example, nginx1.5 means that request was sent to a container with that same name as indicated in the output of the command docker service ps nginx1.
+In addition to seeing whether the request was sent to node1, node2, or node3, you can also see which container on each node that it was sent to. For example, nginx1.5 means that request was sent to a container with that same name as indicated in the output of the command docker service ps nginx1.
 
 [Back to Index](#Index)
 &nbsp;    
@@ -208,7 +208,7 @@ Now that you have your service deployed, you'll see a release of your applicatio
 <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%203%20-%20Orchestrate%20applications%20with%20Docker%20Swarm/assets/lab3-rolling_updates_1.png">
 
 
-    You have successfully updated your application to the latest version of NGINX.
+You have successfully updated your application to the latest version of NGINX.
 
 [Back to Index](#Index)
 &nbsp;    

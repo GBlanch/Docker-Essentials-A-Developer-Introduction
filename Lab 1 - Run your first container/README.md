@@ -35,29 +35,27 @@ Use the Docker CLI to run your first container.
 
 1. Open a terminal on your local computer and run this command:
 
-                  $ docker container run -t ubuntu top
-
-      You use the `docker container run` command to run a container with the Ubuntu image by using the `top` command. The `-t` flag allocates a pseudo-TTY, which you need for the `top` command to work correctly.
-
-      (screenshot)
-
-      The `docker run` command first starts a `docker pull` to download the Ubuntu image onto your host. After it is downloaded, it will start the container. The output for the running container should look like       this:
-
-(screenshot)
-
-
-`top` is a Linux utility that prints the processes on a system and orders them by resource consumption. Notice that there is only a single process in this output: it is the `top` process itself. You don't see other processes from the host in this list because of the PID namespace isolation.
-
-<ins> Containers use Linux namespaces to provide isolation of system resources </ins> from other containers or the host. The PID namespace provides isolation for process IDs. If you run `top` while inside the container, you will notice that it shows the processes within the PID namespace of the container, which is much different than what you can see if you ran top on the host.
-
-Even though we are using the Ubuntu image, it is important to note that <ins>the container does not have its own kernel. It uses the kernel of the host and the Ubuntu image is used only to provide the file system and tools available on an Ubuntu system. </ins>
+        $ docker container run -t ubuntu top
+    
+    You use the `docker container run` command to run a container with the Ubuntu image by using the `top` command. The `-t` flag allocates a pseudo-TTY, which you need for the `top` command to work correctly.
+    
+    <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first1.png">
+    
+    The `docker run` command first starts a `docker pull` to download the Ubuntu image onto your host. After it is downloaded, it will start the container. The output for the running container should look like this:
+    
+    <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first2.png">
+    
+    `top` is a Linux utility that prints the processes on a system and orders them by resource consumption. Notice that there is only a single process in this output: it is the `top` process itself. You don't see other processes from the host in this list because of the PID namespace isolation.
+    
+    <ins> Containers use Linux namespaces to provide isolation of system resources </ins> from other containers or the host. The PID namespace provides isolation for process IDs. If you run `top` while inside the container, you will notice that it shows the processes within the PID namespace of the container, which is much different than what you can see if you ran top on the host.
+    
+    Even though we are using the Ubuntu image, it is important to note that <ins>the container does not have its own kernel. It uses the kernel of the host and the Ubuntu image is used only to provide the file system and tools available on an Ubuntu system. </ins>
 
 2. Open an new terminal. Use `docker ps` to fetch the container_ID that you initially fired up:
 
                 docker container ls 
 
-(screenshot)
-        
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first3.png">
 
 
 3. Use that container ID to run `bash` inside that container by using the docker `container exec command`. Because you are using bash and want to interact with this container from your terminal, use the `-it` flag followed by the container_ID to run using interactive mode while allocating a psuedo-terminal:
@@ -69,38 +67,43 @@ Even though we are using the Ubuntu image, it is important to note that <ins>the
 
       Notice the change in the prefix of your terminal, for example,  `root@b3ad2a23fab3:/`. This is an indication that you are running bash inside the container.
 
-Tip: This is not the same as using ssh to a separate host or a VM. You don't need an ssh server to connect with a bash process. Remember that <ins>containers use kernel-level features to achieve isolation and that containers run on top of the kernel. Your container is just a group of processes running in isolation on the same host,</ins> and you can use the command `docker container exec` to enter that isolation with the bash process. After you run the command `docker container exec`, the group of processes running in isolation (in other words, the container) includes <ins>top and bash.</ins>
+    Tip: This is not the same as using ssh to a separate host or a VM. You don't need an ssh server to connect with a bash process. Remember that <ins>containers use kernel-level features to achieve isolation and that containers run on top of the kernel. Your container is just a group of processes running in isolation on the same host,</ins> and you can use the command `docker container exec` to enter that isolation with the bash process. After you run the command `docker container exec`, the group of processes running in isolation (in other words, the container) includes <ins>top and bash.</ins>
 
-5. From the same terminal, inspect the running processes:
+4. From the same terminal, inspect the running processes:
 
-                $ ps -ef
-                
-      You should see only the `top` process, `bash` process, and your `ps` process. PID is just one of the Linux namespaces that provides containers with isolation to system resources.
+                        $ ps -ef
 
-      Other Linux namespaces include:
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first4.png">
 
-      - MNT: Mount and unmount directories without affecting other namespaces.
-      - NET: Containers have their own network stack.
-      - IPC: Isolated interprocess communication mechanisms such as message queues.
-      - User: Isolated view of users on the system.
-      - UTC: Set hostname and domain name per container.
-      
-      These namespaces provide the isolation for containers that allow them to run together securely and without conflict with other containers running on the same system.
+You should see only the `top` process, `bash` process, and your `ps` process. PID is just one of the Linux namespaces that provides containers with isolation to system resources.
 
-6. For comparison, exit the container and run `ps -ef` or `top` on the host. These commands will work on Linux or Mac. For Windows, you can inspect the running processes by using `tasklist`.
+Other Linux namespaces include:
+
+- MNT: Mount and unmount directories without affecting other namespaces.
+- NET: Containers have their own network stack.
+- IPC: Isolated interprocess communication mechanisms such as message queues.
+- User: Isolated view of users on the system.
+- UTC: Set hostname and domain name per container.
+
+These namespaces provide the isolation for containers that allow them to run together securely and without conflict with other containers running on the same system.
+
+5. For comparison, exit the container and run `ps -ef` or `top` on the host. These commands will work on Linux or Mac. For Windows, you can inspect the running processes by using `tasklist`.
 
                 root@b3ad2a23fab3:/# exit 
                 exit
 
-In the next lab, you'll see different uses of containers and the benefit of isolation as you run multiple containers on the same host.
+ In the next lab, you'll see different uses of containers and the benefit of isolation as you run multiple containers on the same host.
 
-**Tip**: Namespaces are a feature of the Linux kernel. However, Docker allows you to run containers on Windows and Mac. The secret is that embedded in the Docker product is a Linux subsystem. Docker open-sourced this Linux subsystem to a new project: LinuxKit. Being able to run containers on many different platforms is one advantage of using the Docker tooling with containers.
+ **Tip**: Namespaces are a feature of the Linux kernel. However, Docker allows you to run containers on Windows and Mac. The secret is that embedded in the Docker 
+ product is a Linux subsystem. Docker open-sourced this Linux subsystem to a new project: LinuxKit. Being able to run containers on many different platforms is 
+ one advantage of using the Docker tooling with containers.
 
-In addition to running Linux containers on Windows by using a Linux subsystem, native Windows containers are now possible because of the creation of container primitives on the Windows operating system. Native Windows containers can be run on Windows 10 or Windows Server 2016 or later.
+ In addition to running Linux containers on Windows by using a Linux subsystem, native Windows containers are now possible because of the creation of container 
+ primitives on the Windows operating system. Native Windows containers can be run on Windows 10 or Windows Server 2016 or later.
 
-7. Clean up the container running the top processes:
+6. Clean up the container running the top processes:
 
-            <ctrl>-c
+        <ctrl>-c
 
 
 [Back to Index](#Index)
@@ -126,21 +129,22 @@ It is recommended to use Docker Personal edition for this lab practice.
 
             $ docker container run --detach --publish 8080:80 --name nginx nginx
 
-(screenshot)
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first4.png">
 
-  You are using a couple of new flags here. The --detach flag will run this container in the background. The publish flag publishes port 80 in the container (the default port for NGINX) by using port 8080 on your host. Remember that the NET namespace gives processes of the container their own network stack. The --publish flag is a feature that can expose networking through the container onto the host.
-  
-  How do you know port 80 is the default port for NGINX? Because it is listed in the documentation on the Docker Store. In general, the documentation for the verified images is very good, and you will want to refer to it when you run containers using those images.
-  
-  You are also specifying the --name flag, which names the container. Every container has a name. If you don't specify one, Docker will randomly assign one for you. Specifying your own name makes it easier to run subsequent commands on your container because you can reference the name instead of the id of the container. For example, you can specify docker container inspect nginx instead of docker container inspect 5e1.
-  
-  Because this is the first time you are running the NGINX container, it will pull down the NGINX image from the Docker Store. Subsequent containers created from the NGINX image will use the existing image located on your host.
-  
-  NGINX is a lightweight web server. You can access it on port 8080 on your localhost.
+
+You are using a couple of new flags here. The --detach flag will run this container in the background. The publish flag publishes port 80 in the container (the default port for NGINX) by using port 8080 on your host. Remember that the NET namespace gives processes of the container their own network stack. The --publish flag is a feature that can expose networking through the container onto the host.
+
+How do you know port 80 is the default port for NGINX? Because it is listed in the documentation on the Docker Store. In general, the documentation for the verified images is very good, and you will want to refer to it when you run containers using those images.
+
+You are also specifying the --name flag, which names the container. Every container has a name. If you don't specify one, Docker will randomly assign one for you. Specifying your own name makes it easier to run subsequent commands on your container because you can reference the name instead of the id of the container. For example, you can specify docker container inspect nginx instead of docker container inspect 5e1.
+
+Because this is the first time you are running the NGINX container, it will pull down the NGINX image from the Docker Store. Subsequent containers created from the NGINX image will use the existing image located on your host.
+
+NGINX is a lightweight web server. You can access it on port 8080 on your localhost.
 
 3. Access the NGINX server on http://localhost:8080.
 
-(screenshot)
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first5.png">
 
 
 4. Run a MongoDB server. You will use the official MongoDB image from the Docker Store. Instead of using the latest tag (which is the default if no tag is specified), use a specific version of the Mongo image: 3.4.
@@ -160,22 +164,29 @@ It is recommended to use Docker Personal edition for this lab practice.
 
             $ docker container ls 
 
-(screenshot)
 
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_multiple5.png">
 
-  You should see that you have an NGINX web server container and a MongoDB container running on your host. Note that you have not configured these containers to talk to each other.
-  
-  You can see the nginx and mongo names that you gave to the containers and the random name (in this example, priceless_kepler) that was generated for the Ubuntu container. You can also see that the port mappings that you specified with the --publish flag. For more information on these running containers, use the docker container inspect [container id] command.
-  
-  One thing you might notice is that the Mongo container is running the docker-entrypoint command. This is the name of the executable that is run when the container is started. The Mongo image requires some prior configuration before kicking off the DB process. You can see exactly what the script does by looking at it on GitHub. Typically, you can find the link to the GitHub source from the image description page on the Docker Store website.
-  
-  Containers are self-contained and isolated, which means you can avoid potential conflicts between containers with different system or runtime dependencies. For example, you  can deploy an app that uses Java 7 and another app that uses Java 8 on the same host. Or you can run multiple NGINX containers that all have port 80 as their default listening ports. (If you're exposing on the host by using the --publish flag, the ports selected for the host must be unique.) Isolation benefits are possible because of Linux namespaces.
+You should see that you have an NGINX web server container and a MongoDB container running on your host. Note that you have not configured these containers to 
+talk to each other. You can see the nginx and mongo names that you gave to the containers and the random name (in this example, priceless_kepler) that was generated for the Ubuntu container. You can also see that the port mappings that you specified with the `--publish` flag. For more information on these running containers, use the docker container inspect [container id] command.
 
-**Remember**: You didn't have to install anything on your host (other than Docker) to run these processes! Each container includes the dependencies that it needs within the container, so you don't need to install anything on your host directly.
+One thing you might notice is that the Mongo container is running the docker-entrypoint command. This is the name of the executable that is run when the 
+container is started. The Mongo image requires some prior configuration before kicking off the DB process. You can see exactly what the script does by looking 
+at it on GitHub. Typically, you can find the link to the GitHub source from the image description page on the Docker Store website.
 
-Running multiple containers on the same host gives us the ability to use the resources (CPU, memory, and so on) available on single host. This can result in huge cost savings for an enterprise.
+Containers are self-contained and isolated, which means you can avoid potential conflicts between containers with different system or runtime dependencies. For 
+example, you  can deploy an app that uses Java 7 and another app that uses Java 8 on the same host. Or you can run multiple NGINX containers that all have port 
+80 as their default listening ports. (If you're exposing on the host by using the --publish flag, the ports selected for the host must be unique.) Isolation 
+benefits are possible because of Linux namespaces.
 
-Although running images directly from the Docker Store can be useful at times, it is more useful to create custom images and refer to official images as the starting point for these images. You'll learn to build your own custom images in the next lab.
+**Remember**: You didn't have to install anything on your host (other than Docker) to run these processes! Each container includes the dependencies that it 
+needs within the container, so you don't need to install anything on your host directly.
+
+Running multiple containers on the same host gives us the ability to use the resources (CPU, memory, and so on) available on single host. This can result in 
+huge cost savings for an enterprise.
+
+Although running images directly from the Docker Store can be useful at times, it is more useful to create custom images and refer to official images as the 
+starting point for these images. You'll learn to build your own custom images in the next lab.
 
 
 [Back to Index](#Index)
@@ -191,11 +202,13 @@ Completing this lab creates several running containers on your host. Now, you'll
 
             $ docker container ls
 
-2. Stop the containers by running this command for each container in the list:
+   <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_remove1.png">
+
+3. Stop the containers by running this command for each container in the list:
 
             $ docker container stop [container id]
 
-        You can also use the names of the containers that you specified before:
+   You can also use the names of the containers that you specified before:
 
             $ docker container stop d67 ead af5
             d67
@@ -203,10 +216,10 @@ Completing this lab creates several running containers on your host. Now, you'll
             af5
 
 
-**Tip**: You need to enter only enough digits of the ID to be unique. Three digits is typically adequate.
+   **Tip**: You need to enter only enough digits of the ID to be unique. Three digits is typically adequate.
 
-3. Remove the stopped containers. The following command removes any stopped containers, unused volumes and networks, and dangling images:
+4. Remove the stopped containers. The following command removes any stopped containers, unused volumes and networks, and dangling images:
 
             $ docker system prune
 
-(screenshot)
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_remove2.png">
