@@ -70,8 +70,6 @@ All docker service commands for the rest of this lab need to be executed on the 
 &nbsp;    
 &nbsp;  
 
-
-
 [Go back to Index](#Index)
 ### Deploy your first service
 
