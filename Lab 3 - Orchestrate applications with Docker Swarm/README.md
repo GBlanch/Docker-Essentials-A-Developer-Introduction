@@ -66,7 +66,10 @@ All docker service commands for the rest of this lab need to be executed on the 
 
 **Note**: Although you control the swarm directly from the node in which its running, you can control a Docker swarm remotely by connecting to the Docker Engine of the manager by using the remote API or by activating a remote host from your local Docker installation (using the `$DOCKER_HOST` and `$DOCKER_CERT_PATH` environment variables). This will become useful when you want to remotely control production applications, instead of using SSH to directly control production servers.
 
+&nsbp;
+&nsbp;
 
+[Go back to Index](#Index)
 ### Deploy your first service
 
 Now that you have your three-node Swarm cluster initialized, you'll deploy some containers. To run containers on a Docker Swarm, you need to create a service. A service is an abstraction that represents multiple containers of the same image deployed across a distributed cluster.
