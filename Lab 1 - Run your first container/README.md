@@ -37,37 +37,37 @@ Use the Docker CLI to run your first container.
 
         $ docker container run -t ubuntu top
     
-    You use the `docker container run` command to run a container with the Ubuntu image by using the `top` command. The `-t` flag allocates a pseudo-TTY, which you need for the `top` command to work correctly.
+    You use the ```docker container run``` command to run a container with the Ubuntu image by using the ```top``` command. The ```-t``` flag allocates a pseudo-TTY, which you need for the ```top``` command to work correctly.
     
     <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first1.png">
     
-    The `docker run` command first starts a `docker pull` to download the Ubuntu image onto your host. After it is downloaded, it will start the container. The output for the running container should look like this:
+    The ```docker run``` command first starts a ```docker pull``` to download the Ubuntu image onto your host. After it is downloaded, it will start the container. The output for the running container should look like this:
     
     <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first2.png">
     
-    `top` is a Linux utility that prints the processes on a system and orders them by resource consumption. Notice that there is only a single process in this output: it is the `top` process itself. You don't see other processes from the host in this list because of the PID namespace isolation.
+    ```top``` is a Linux utility that prints the processes on a system and orders them by resource consumption. Notice that there is only a single process in this output: it is the ```top``` process itself. You don't see other processes from the host in this list because of the PID namespace isolation.
     
-    <ins> Containers use Linux namespaces to provide isolation of system resources </ins> from other containers or the host. The PID namespace provides isolation for process IDs. If you run `top` while inside the container, you will notice that it shows the processes within the PID namespace of the container, which is much different than what you can see if you ran top on the host.
+    <ins> Containers use Linux namespaces to provide isolation of system resources </ins> from other containers or the host. The PID namespace provides isolation for process IDs. If you run ```top``` while inside the container, you will notice that it shows the processes within the PID namespace of the container, which is much different than what you can see if you ran top on the host.
     
     Even though we are using the Ubuntu image, it is important to note that <ins>the container does not have its own kernel. It uses the kernel of the host and the Ubuntu image is used only to provide the file system and tools available on an Ubuntu system. </ins>
 
-2. Open an new terminal. Use `docker ps` to fetch the container_ID that you initially fired up:
+2. Open an new terminal. Use ```docker ps``` to fetch the container_ID that you initially fired up:
 
                 docker container ls 
 
 <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first3.png">
 
 
-3. Use that container ID to run `bash` inside that container by using the docker `container exec command`. Because you are using bash and want to interact with this container from your terminal, use the `-it` flag followed by the container_ID to run using interactive mode while allocating a psuedo-terminal:
+3. Use that container ID to run ```bash``` inside that container by using the docker ```container exec command```. Because you are using bash and want to interact with this container from your terminal, use the `-it` flag followed by the container_ID to run using interactive mode while allocating a psuedo-terminal:
 
                 $ docker container exec -it b3ad2a23fab3 bash 
                 root@b3ad2a23fab3:/#
 
-      You just used the `docker container exec` command to enter the container's namespaces with the bash process. Using docker container exec with bash is a common way to inspect a Docker container.
+      You just used the ```docker container exec``` command to enter the container's namespaces with the bash process. Using docker container exec with bash is a common way to inspect a Docker container.
 
-      Notice the change in the prefix of your terminal, for example,  `root@b3ad2a23fab3:/`. This is an indication that you are running bash inside the container.
+      Notice the change in the prefix of your terminal, for example,  ```root@b3ad2a23fab3:/```. This is an indication that you are running bash inside the container.
 
-    Tip: This is not the same as using ssh to a separate host or a VM. You don't need an ssh server to connect with a bash process. Remember that <ins>containers use kernel-level features to achieve isolation and that containers run on top of the kernel. Your container is just a group of processes running in isolation on the same host,</ins> and you can use the command `docker container exec` to enter that isolation with the bash process. After you run the command `docker container exec`, the group of processes running in isolation (in other words, the container) includes <ins>top and bash.</ins>
+    Tip: This is not the same as using ssh to a separate host or a VM. You don't need an ssh server to connect with a bash process. Remember that <ins>containers use kernel-level features to achieve isolation and that containers run on top of the kernel. Your container is just a group of processes running in isolation on the same host,</ins> and you can use the command ```docker container exec``` to enter that isolation with the bash process. After you run the command ```docker container exec```, the group of processes running in isolation (in other words, the container) includes <ins>top and bash.</ins>
 
 4. From the same terminal, inspect the running processes:
 
@@ -75,8 +75,7 @@ Use the Docker CLI to run your first container.
 
 <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first4.png">
 
-  You should see only the `top` process, `bash` process, and your `ps` process. PID is just one of the Linux namespaces that provides containers with isolation to 
-  system resources.
+  You should see only the ```top``` process, ```bash``` process, and your ```ps``` process. PID is just one of the Linux namespaces that provides containers with isolation to system resources.
 
 Other Linux namespaces include:
 
@@ -88,7 +87,7 @@ Other Linux namespaces include:
 
 These namespaces provide the isolation for containers that allow them to run together securely and without conflict with other containers running on the same system.
 
-5. For comparison, exit the container and run `ps -ef` or `top` on the host. These commands will work on Linux or Mac. For Windows, you can inspect the running processes by using `tasklist`.
+5. For comparison, exit the container and run ```ps -ef``` or ```top``` on the host. These commands will work on Linux or Mac. For Windows, you can inspect the running processes by using ```tasklist```.
 
                 root@b3ad2a23fab3:/# exit 
                 exit
