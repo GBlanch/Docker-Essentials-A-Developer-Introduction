@@ -1,4 +1,4 @@
-# Lab 3 Summary
+# Lab 3 : Orchestrate applications with Docker Swarm
 
 Sourced from : https://apps.cognitiveclass.ai/learning/course/course-v1:IBMDeveloperSkillsNetwork+CO0101EN+v1/home
 
@@ -10,21 +10,21 @@ Remember these key points:
 
 - Docker Swarm schedules services by using a **declarative language**. You declare the state, and the swarm *attempts to maintain and reconcile to make sure the actual state equals the desired state*.
 - Docker Swarm is composed of **manager** and **worker nodes**. Only managers can maintain the state of the swarm and accept commands to modify it. Workers have high scalability and are only used to run containers. By default, managers can also run containers.
-- The routing mesh built into Docker Swarm means that *any port that is published at the service level will be exposed on every node* in the swarm. Requests to a published service port will be automatically routed to a container of the service that is running in the swarm.
+- The **routing mesh** built into Docker Swarm means that *any port that is published at the service level will be exposed on every node* in the swarm. Requests to a published service port will be automatically routed to a container of the service that is running in the swarm.
 - You can use other tools to help solve problems with **orchestrated, containerized applications in production**, including Docker Swarm and the IBM Cloud Kubernetes Service.
 
 
 ## Index
 
-[Create your first swarm](#create-your-first-swarm)
+- [Create your first swarm](#create-your-first-swarm)
+ 
+- [Deploy your first service](#deploy-your-first-service)
 
-[Deploy your first service](#deploy-your-first-service)
+- [Scale your service](#scale-your-service)
 
-[Scale your service](#scale-your-service)
+- [Apply rolling updates](#apply-rolling-updates)
 
-[Apply rolling updates](#apply-rolling-updates)
-
-[Reconcile problems with containers](#reconcile-problems-with-containers)
+- [Reconcile problems with containers](#reconcile-problems-with-containers)
 
 
 ### Create your first swarm
@@ -58,13 +58,15 @@ Remember these key points:
             x223z25t7y7o4np3uq45d49br     node2               Ready               Active
             zdqbsoxa6x1bubg3jyjdmrnrn *   node1               Ready               Active              Leader
 
-This command outputs the three nodes in your swarm. The asterisk (*) next to the ID of the node represents the node that handled that specific command (docker node ls in this case).
+   This command outputs the three nodes in your swarm. The asterisk (*) next to the ID of the node represents the node that handled that specific command (docker 
+   node ls in this case).
 
-Your node consists of one manager node and two workers nodes. Managers handle commands and manage the state of the swarm. Workers cannot handle commands and are simply used to run containers at scale. By default, managers are also used to run containers.
+   Your node consists of one manager node and two workers nodes. Managers handle commands and manage the state of the swarm. Workers cannot handle commands and 
+   are simply used to run containers at scale. By default, managers are also used to run containers.
 
-All docker service commands for the rest of this lab need to be executed on the manager node (Node1).
+   All docker service commands for the rest of this lab need to be executed on the manager node (Node1).
 
-**Note**: Although you control the swarm directly from the node in which its running, you can control a Docker swarm remotely by connecting to the Docker Engine of the manager by using the remote API or by activating a remote host from your local Docker installation (using the `$DOCKER_HOST` and `$DOCKER_CERT_PATH` environment variables). This will become useful when you want to remotely control production applications, instead of using SSH to directly control production servers.
+**Note**: Although you control the swarm directly from the node in which its running, <ins>you can control a Docker swarm remotely by connecting to the Docker Engine of the manager by using the remote API or by activating a remote host from your local Docker installation</ins> (using the `$DOCKER_HOST` and `$DOCKER_CERT_PATH` environment variables). This will become useful when you want to remotely control production applications, instead of using SSH to directly control production servers.
 
 [Back to Index](#Index)
 &nbsp;    
@@ -80,7 +82,7 @@ Let's do a simple example using **NGINX**. For now, you will create a service wi
 
             $ docker service create --detach=true --name nginx1 --publish 80:80  --mount source=/etc/hostname,target=/usr/share/nginx/html/index.html,type=bind,ro nginx:1.12 pgqdxr41dpy8qwkn6qm7vke0q
 
-    This command statement is declarative, and Docker Swarm will try to maintain the state declared in this command unless explicitly changed by another `docker service` command. This behavior is useful when nodes go down, for example, and containers are automatically rescheduled on other nodes. You will see a demonstration of that a little later in this lab.
+    This **command statement** is **declarative**, and Docker Swarm will try to maintain the state declared in this command unless explicitly changed by another `docker service` command. This behavior is useful when nodes go down, for example, and containers are automatically rescheduled on other nodes. You will see a demonstration of that a little later in this lab.
 
     The `--mount` flag is useful to have NGINX print out the hostname of the node it's running on. You will use this later in this lab when you start load balancing between multiple containers of NGINX that are distributed across different nodes in the cluster and you want to see which node in the swarm is serving the request.
 
@@ -138,7 +140,9 @@ In production, you might need to handle large amounts of traffic to your applica
 
 2. Check the running instances.
 
-After a few seconds, you should see that the swarm did its job and successfully started 9 more containers. Notice that the containers are scheduled across all three nodes of the cluster. The default placement strategy that is used to decide where new containers are to be run is the emptiest node, but that can be changed based on your needs.
+   After a few seconds, you should see that the swarm did its job and successfully started 9 more containers. Notice that the containers are scheduled across all 
+   three nodes of the cluster. The default placement strategy that is used to decide where new containers are to be run is the emptiest node, but that can be 
+   changed based on your needs.
 
             $ docker service ps nginx1
 

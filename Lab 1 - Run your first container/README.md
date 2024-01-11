@@ -1,4 +1,4 @@
-# Lab 1 Overview
+# Lab 1 : Run your first container
 
 Sourced from : https://apps.cognitiveclass.ai/learning/course/course-v1:IBMDeveloperSkillsNetwork+CO0101EN+v1/home
 
@@ -22,11 +22,11 @@ You will use a few Docker commands in this lab. If interested, see the full docu
 
 ## Index
 
-[Run a container](#run-a-container)
+- [Run a container](#run-a-container)
 
-[Run multiple containers](#run-multiple-containers)
+- [Run multiple containers](#run-multiple-containers)
 
-[Remove the containers](#remove-the-containers)
+- [Remove the containers](#remove-the-containers)
 
 
 ### Run a container
@@ -37,37 +37,43 @@ Use the Docker CLI to run your first container.
 
         $ docker container run -t ubuntu top
     
-    You use the `docker container run` command to run a container with the Ubuntu image by using the `top` command. The `-t` flag allocates a pseudo-TTY, which you need for the `top` command to work correctly.
+    You use the ```docker container run``` command to run a container with the Ubuntu image by using the ```top``` command. The ```-t``` flag allocates a pseudo-TTY, which you need for the ```top``` command to work correctly.
     
     <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first1.png">
     
-    The `docker run` command first starts a `docker pull` to download the Ubuntu image onto your host. After it is downloaded, it will start the container. The output for the running container should look like this:
+    The ```docker run``` command first starts a ```docker pull``` to download the Ubuntu image onto your host. After it is downloaded, it will start the container. The output for the running container should look like this:
     
     <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first2.png">
     
-    `top` is a Linux utility that prints the processes on a system and orders them by resource consumption. Notice that there is only a single process in this output: it is the `top` process itself. You don't see other processes from the host in this list because of the PID namespace isolation.
+    ```top``` is a Linux utility that prints the processes on a system and orders them by resource consumption. Notice that there is only a single process in this output: it is the ```top``` process itself. You don't see other processes from the host in this list because of the PID namespace isolation.
     
-    <ins> Containers use Linux namespaces to provide isolation of system resources </ins> from other containers or the host. The PID namespace provides isolation for process IDs. If you run `top` while inside the container, you will notice that it shows the processes within the PID namespace of the container, which is much different than what you can see if you ran top on the host.
+    <ins> Containers use Linux namespaces to provide isolation of system resources </ins> from other containers or the host. The PID namespace provides isolation for process IDs. If you run ```top``` while inside the container, you will notice that it shows the processes within the PID namespace of the container, which is much different than what you can see if you ran top on the host.
     
     Even though we are using the Ubuntu image, it is important to note that <ins>the container does not have its own kernel. It uses the kernel of the host and the Ubuntu image is used only to provide the file system and tools available on an Ubuntu system. </ins>
 
-2. Open an new terminal. Use `docker ps` to fetch the container_ID that you initially fired up:
+2. Open an new terminal. Use ```docker ps``` to fetch the container_ID that you initially fired up:
 
         $ docker container ls 
 
 <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first3.png">
 
 
-3. Use that container ID to run `bash` inside that container by using the docker `container exec command`. Because you are using bash and want to interact with this container from your terminal, use the `-it` flag followed by the container_ID to run using interactive mode while allocating a psuedo-terminal:
+3. Use that container ID to run ```bash``` inside that container by using the docker ```container exec command```. Because you are using bash and want to interact with this container from your terminal, use the `-it` flag followed by the container_ID to run using interactive mode while allocating a psuedo-terminal:
 
         $ docker container exec -it b3ad2a23fab3 bash 
         root@b3ad2a23fab3:/#
 
+<<<<<<< HEAD
     You just used the `docker container exec` command to enter the container's namespaces with the bash process. Using docker container exec with bash is a common way to inspect a Docker container.
 
     Notice the change in the prefix of your terminal, for example,  `root@b3ad2a23fab3:/`. This is an indication that you are running bash inside the container.
+=======
+      You just used the ```docker container exec``` command to enter the container's namespaces with the bash process. Using docker container exec with bash is a common way to inspect a Docker container.
 
-    Tip: This is not the same as using ssh to a separate host or a VM. You don't need an ssh server to connect with a bash process. Remember that <ins>containers use kernel-level features to achieve isolation and that containers run on top of the kernel. Your container is just a group of processes running in isolation on the same host,</ins> and you can use the command `docker container exec` to enter that isolation with the bash process. After you run the command `docker container exec`, the group of processes running in isolation (in other words, the container) includes <ins>top and bash.</ins>
+      Notice the change in the prefix of your terminal, for example,  ```root@b3ad2a23fab3:/```. This is an indication that you are running bash inside the container.
+>>>>>>> 80397f23707cb5a921969d41c96fe4cf471f8183
+
+    Tip: This is not the same as using ssh to a separate host or a VM. You don't need an ssh server to connect with a bash process. Remember that <ins>containers use kernel-level features to achieve isolation and that containers run on top of the kernel. Your container is just a group of processes running in isolation on the same host,</ins> and you can use the command ```docker container exec``` to enter that isolation with the bash process. After you run the command ```docker container exec```, the group of processes running in isolation (in other words, the container) includes <ins>top and bash.</ins>
 
 4. From the same terminal, inspect the running processes:
 
@@ -75,7 +81,11 @@ Use the Docker CLI to run your first container.
 
   <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first4.png">
 
+<<<<<<< HEAD
   You should see only the `top` process, `bash` process, and your `ps` process. PID is just one of the Linux namespaces that provides containers with isolation to system resources.
+=======
+You should see only the ```top``` process, ```bash``` process, and your ```ps``` process. PID is just one of the Linux namespaces that provides containers with isolation to system resources.
+>>>>>>> 80397f23707cb5a921969d41c96fe4cf471f8183
 
   Other Linux namespaces include:
 
@@ -87,7 +97,7 @@ Use the Docker CLI to run your first container.
 
   These namespaces provide the isolation for containers that allow them to run together securely and without conflict with other containers running on the same system.
 
-5. For comparison, exit the container and run `ps -ef` or `top` on the host. These commands will work on Linux or Mac. For Windows, you can inspect the running processes by using `tasklist`.
+5. For comparison, exit the container and run ```ps -ef``` or ```top``` on the host. These commands will work on Linux or Mac. For Windows, you can inspect the running processes by using ```tasklist```.
 
         root@b3ad2a23fab3:/# exit 
         exit
@@ -129,8 +139,7 @@ It is recommended to use Docker Personal edition for this lab practice.
 
             $ docker container run --detach --publish 8080:80 --name nginx nginx
 
-<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first4.png">
-
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_multiple1.png">
 
 You are using a couple of new flags here. The --detach flag will run this container in the background. The publish flag publishes port 80 in the container (the default port for NGINX) by using port 8080 on your host. Remember that the NET namespace gives processes of the container their own network stack. The --publish flag is a feature that can expose networking through the container onto the host.
 
@@ -144,21 +153,18 @@ NGINX is a lightweight web server. You can access it on port 8080 on your localh
 
 3. Access the NGINX server on http://localhost:8080.
 
-<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first5.png">
-
-
 4. Run a MongoDB server. You will use the official MongoDB image from the Docker Store. Instead of using the latest tag (which is the default if no tag is specified), use a specific version of the Mongo image: 3.4.
 
             $ docker container run --detach --publish 8081:27017 --name mongo mongo:3.4
 
- (image)
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first3.png">
 
 
   Again, because this is the first time you are running a Mongo container, pull the Mongo image from the Docker Store. You use the --publish flag to expose the 27017 Mongo port on your host. You must use a port other than 8080 for the host mapping because that port is already exposed on your host. See the documentation on the Docker Store to get more information about using the Mongo image.
 
 5. Access http://localhost:8081 to see some output from Mongo.
 
-(screenshot)
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_multiple4.png">
 
 6. Check your running containers:
 
