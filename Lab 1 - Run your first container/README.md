@@ -69,23 +69,23 @@ Use the Docker CLI to run your first container.
 
     Tip: This is not the same as using ssh to a separate host or a VM. You don't need an ssh server to connect with a bash process. Remember that <ins>containers use kernel-level features to achieve isolation and that containers run on top of the kernel. Your container is just a group of processes running in isolation on the same host,</ins> and you can use the command `docker container exec` to enter that isolation with the bash process. After you run the command `docker container exec`, the group of processes running in isolation (in other words, the container) includes <ins>top and bash.</ins>
 
-5. From the same terminal, inspect the running processes:
+4. From the same terminal, inspect the running processes:
 
-                $ ps -ef
+$ ps -ef
 
 <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first4.png">
 
-  You should see only the `top` process, `bash` process, and your `ps` process. PID is just one of the Linux namespaces that provides containers with isolation to system resources.
-  
-  Other Linux namespaces include:
-  
-  - MNT: Mount and unmount directories without affecting other namespaces.
-  - NET: Containers have their own network stack.
-  - IPC: Isolated interprocess communication mechanisms such as message queues.
-  - User: Isolated view of users on the system.
-  - UTC: Set hostname and domain name per container.
-  
-  These namespaces provide the isolation for containers that allow them to run together securely and without conflict with other containers running on the same system.
+You should see only the `top` process, `bash` process, and your `ps` process. PID is just one of the Linux namespaces that provides containers with isolation to system resources.
+
+Other Linux namespaces include:
+
+- MNT: Mount and unmount directories without affecting other namespaces.
+- NET: Containers have their own network stack.
+- IPC: Isolated interprocess communication mechanisms such as message queues.
+- User: Isolated view of users on the system.
+- UTC: Set hostname and domain name per container.
+
+These namespaces provide the isolation for containers that allow them to run together securely and without conflict with other containers running on the same system.
 
 5. For comparison, exit the container and run `ps -ef` or `top` on the host. These commands will work on Linux or Mac. For Windows, you can inspect the running processes by using `tasklist`.
 
@@ -98,7 +98,7 @@ In the next lab, you'll see different uses of containers and the benefit of isol
 
 In addition to running Linux containers on Windows by using a Linux subsystem, native Windows containers are now possible because of the creation of container primitives on the Windows operating system. Native Windows containers can be run on Windows 10 or Windows Server 2016 or later.
 
-7. Clean up the container running the top processes:
+6. Clean up the container running the top processes:
 
             <ctrl>-c
 
