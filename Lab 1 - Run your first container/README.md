@@ -1,4 +1,4 @@
-# Lab 1 Overview
+# Lab 1 : Run your first container
 
 Sourced from : https://apps.cognitiveclass.ai/learning/course/course-v1:IBMDeveloperSkillsNetwork+CO0101EN+v1/home
 
