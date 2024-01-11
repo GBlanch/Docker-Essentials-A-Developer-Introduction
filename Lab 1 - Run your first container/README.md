@@ -202,7 +202,9 @@ Completing this lab creates several running containers on your host. Now, you'll
 
             $ docker container ls
 
-2. Stop the containers by running this command for each container in the list:
+   <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_remove1.png">
+
+3. Stop the containers by running this command for each container in the list:
 
             $ docker container stop [container id]
 
@@ -216,8 +218,8 @@ Completing this lab creates several running containers on your host. Now, you'll
 
    **Tip**: You need to enter only enough digits of the ID to be unique. Three digits is typically adequate.
 
-3. Remove the stopped containers. The following command removes any stopped containers, unused volumes and networks, and dangling images:
+4. Remove the stopped containers. The following command removes any stopped containers, unused volumes and networks, and dangling images:
 
             $ docker system prune
 
-(screenshot)
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_remove2.png">
