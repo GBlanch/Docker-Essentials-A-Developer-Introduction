@@ -167,30 +167,26 @@ NGINX is a lightweight web server. You can access it on port 8080 on your localh
 
 <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_multiple5.png">
 
-   You should see that you have an NGINX web server container and a MongoDB container running on your host. Note that you have not configured these containers to 
-   talk to each other.
+You should see that you have an NGINX web server container and a MongoDB container running on your host. Note that you have not configured these containers to 
+talk to each other. You can see the nginx and mongo names that you gave to the containers and the random name (in this example, priceless_kepler) that was generated for the Ubuntu container. You can also see that the port mappings that you specified with the `--publish` flag. For more information on these running containers, use the docker container inspect [container id] command.
 
-   You can see the nginx and mongo names that you gave to the containers and the random name (in this example, priceless_kepler) that was generated for the Ubuntu 
-   container. You can also see that the port mappings that you specified with the --publish flag. For more information on these running containers, use the docker 
-   container inspect [container id] command.
+One thing you might notice is that the Mongo container is running the docker-entrypoint command. This is the name of the executable that is run when the 
+container is started. The Mongo image requires some prior configuration before kicking off the DB process. You can see exactly what the script does by looking 
+at it on GitHub. Typically, you can find the link to the GitHub source from the image description page on the Docker Store website.
 
-   One thing you might notice is that the Mongo container is running the docker-entrypoint command. This is the name of the executable that is run when the 
-   container is started. The Mongo image requires some prior configuration before kicking off the DB process. You can see exactly what the script does by looking 
-   at it on GitHub. Typically, you can find the link to the GitHub source from the image description page on the Docker Store website.
+Containers are self-contained and isolated, which means you can avoid potential conflicts between containers with different system or runtime dependencies. For 
+example, you  can deploy an app that uses Java 7 and another app that uses Java 8 on the same host. Or you can run multiple NGINX containers that all have port 
+80 as their default listening ports. (If you're exposing on the host by using the --publish flag, the ports selected for the host must be unique.) Isolation 
+benefits are possible because of Linux namespaces.
 
-   Containers are self-contained and isolated, which means you can avoid potential conflicts between containers with different system or runtime dependencies. For 
-   example, you  can deploy an app that uses Java 7 and another app that uses Java 8 on the same host. Or you can run multiple NGINX containers that all have port 
-   80 as their default listening ports. (If you're exposing on the host by using the --publish flag, the ports selected for the host must be unique.) Isolation 
-   benefits are possible because of Linux namespaces.
+**Remember**: You didn't have to install anything on your host (other than Docker) to run these processes! Each container includes the dependencies that it 
+needs within the container, so you don't need to install anything on your host directly.
 
-   **Remember**: You didn't have to install anything on your host (other than Docker) to run these processes! Each container includes the dependencies that it 
-   needs within the container, so you don't need to install anything on your host directly.
+Running multiple containers on the same host gives us the ability to use the resources (CPU, memory, and so on) available on single host. This can result in 
+huge cost savings for an enterprise.
 
-   Running multiple containers on the same host gives us the ability to use the resources (CPU, memory, and so on) available on single host. This can result in 
-   huge cost savings for an enterprise.
-
-   Although running images directly from the Docker Store can be useful at times, it is more useful to create custom images and refer to official images as the 
-   starting point for these images. You'll learn to build your own custom images in the next lab.
+Although running images directly from the Docker Store can be useful at times, it is more useful to create custom images and refer to official images as the 
+starting point for these images. You'll learn to build your own custom images in the next lab.
 
 
 [Back to Index](#Index)
