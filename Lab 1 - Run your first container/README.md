@@ -63,15 +63,9 @@ Use the Docker CLI to run your first container.
         $ docker container exec -it b3ad2a23fab3 bash 
         root@b3ad2a23fab3:/#
 
-<<<<<<< HEAD
     You just used the `docker container exec` command to enter the container's namespaces with the bash process. Using docker container exec with bash is a common way to inspect a Docker container.
 
     Notice the change in the prefix of your terminal, for example,  `root@b3ad2a23fab3:/`. This is an indication that you are running bash inside the container.
-=======
-      You just used the ```docker container exec``` command to enter the container's namespaces with the bash process. Using docker container exec with bash is a common way to inspect a Docker container.
-
-      Notice the change in the prefix of your terminal, for example,  ```root@b3ad2a23fab3:/```. This is an indication that you are running bash inside the container.
->>>>>>> 80397f23707cb5a921969d41c96fe4cf471f8183
 
     Tip: This is not the same as using ssh to a separate host or a VM. You don't need an ssh server to connect with a bash process. Remember that <ins>containers use kernel-level features to achieve isolation and that containers run on top of the kernel. Your container is just a group of processes running in isolation on the same host,</ins> and you can use the command ```docker container exec``` to enter that isolation with the bash process. After you run the command ```docker container exec```, the group of processes running in isolation (in other words, the container) includes <ins>top and bash.</ins>
 
@@ -81,11 +75,7 @@ Use the Docker CLI to run your first container.
 
   <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first4.png">
 
-<<<<<<< HEAD
   You should see only the `top` process, `bash` process, and your `ps` process. PID is just one of the Linux namespaces that provides containers with isolation to system resources.
-=======
-You should see only the ```top``` process, ```bash``` process, and your ```ps``` process. PID is just one of the Linux namespaces that provides containers with isolation to system resources.
->>>>>>> 80397f23707cb5a921969d41c96fe4cf471f8183
 
   Other Linux namespaces include:
 
