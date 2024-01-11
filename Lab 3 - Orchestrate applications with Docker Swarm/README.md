@@ -180,6 +180,9 @@ After a few seconds, you should see that the swarm did its job and successfully 
 
     In addition to seeing whether the request was sent to node1, node2, or node3, you can also see which container on each node that it was sent to. For example, nginx1.5 means that request was sent to a container with that same name as indicated in the output of the command docker service ps nginx1.
 
+[Go back to Index](#Index)
+&nbsp;    
+&nbsp;  
 
 ### Apply rolling updates
 
@@ -208,7 +211,9 @@ Now that you have your service deployed, you'll see a release of your applicatio
     You have successfully updated your application to the latest version of NGINX.
 
 
-
+[Go back to Index](#Index)
+&nbsp;    
+&nbsp;  
 ### Reconcile problems with containers
 
 In the previous section, you updated the state of your service by using the command `docker service update`. You saw Docker Swarm in action as it recognized the mismatch between desired state and actual state, and attempted to solve the issue.
