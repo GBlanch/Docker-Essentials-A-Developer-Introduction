@@ -22,11 +22,11 @@ You will use a few Docker commands in this lab. If interested, see the full docu
 
 ## Index
 
-[Run a container](#run-a-container)
+- [Run a container](#run-a-container)
 
-[Run multiple containers](#run-multiple-containers)
+- [Run multiple containers](#run-multiple-containers)
 
-[Remove the containers](#remove-the-containers)
+- [Remove the containers](#remove-the-containers)
 
 
 ### Run a container
