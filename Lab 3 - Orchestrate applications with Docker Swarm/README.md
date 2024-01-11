@@ -1,4 +1,4 @@
-# Lab 3 Summary
+# Lab 3 : Orchestrate applications with Docker Swarm
 
 Sourced from : https://apps.cognitiveclass.ai/learning/course/course-v1:IBMDeveloperSkillsNetwork+CO0101EN+v1/home
 
