@@ -73,19 +73,19 @@ Use the Docker CLI to run your first container.
 
                         $ ps -ef
 
-        <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first4.png">
-        
-        You should see only the `top` process, `bash` process, and your `ps` process. PID is just one of the Linux namespaces that provides containers with isolation to system resources.
-        
-        Other Linux namespaces include:
-        
-        - MNT: Mount and unmount directories without affecting other namespaces.
-        - NET: Containers have their own network stack.
-        - IPC: Isolated interprocess communication mechanisms such as message queues.
-        - User: Isolated view of users on the system.
-        - UTC: Set hostname and domain name per container.
-        
-        These namespaces provide the isolation for containers that allow them to run together securely and without conflict with other containers running on the same system.
+<img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_first4.png">
+
+You should see only the `top` process, `bash` process, and your `ps` process. PID is just one of the Linux namespaces that provides containers with isolation to system resources.
+
+Other Linux namespaces include:
+
+- MNT: Mount and unmount directories without affecting other namespaces.
+- NET: Containers have their own network stack.
+- IPC: Isolated interprocess communication mechanisms such as message queues.
+- User: Isolated view of users on the system.
+- UTC: Set hostname and domain name per container.
+
+These namespaces provide the isolation for containers that allow them to run together securely and without conflict with other containers running on the same system.
 
 5. For comparison, exit the container and run `ps -ef` or `top` on the host. These commands will work on Linux or Mac. For Windows, you can inspect the running processes by using `tasklist`.
 
