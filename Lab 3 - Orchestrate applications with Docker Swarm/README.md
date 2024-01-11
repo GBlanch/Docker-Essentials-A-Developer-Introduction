@@ -138,7 +138,9 @@ In production, you might need to handle large amounts of traffic to your applica
 
 2. Check the running instances.
 
-After a few seconds, you should see that the swarm did its job and successfully started 9 more containers. Notice that the containers are scheduled across all three nodes of the cluster. The default placement strategy that is used to decide where new containers are to be run is the emptiest node, but that can be changed based on your needs.
+   After a few seconds, you should see that the swarm did its job and successfully started 9 more containers. Notice that the containers are scheduled across all 
+   three nodes of the cluster. The default placement strategy that is used to decide where new containers are to be run is the emptiest node, but that can be 
+   changed based on your needs.
 
             $ docker service ps nginx1
 
