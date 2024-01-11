@@ -115,7 +115,9 @@ Let's do a simple example using **NGINX**. For now, you will create a service wi
 
     Curling will output the hostname where the container is running. For this example, it is running on node1, but yours might be different.
 
-
+[Go back to Index](#Index)
+&nbsp;    
+&nbsp;  
 ### Scale your service
 
 In production, you might need to handle large amounts of traffic to your application, so you'll learn how to scale.
