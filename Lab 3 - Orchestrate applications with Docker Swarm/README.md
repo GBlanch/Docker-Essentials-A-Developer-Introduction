@@ -261,4 +261,7 @@ You are going to remove a node and see tasks of your nginx1 service be reschedul
 
 <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%203%20-%20Orchestrate%20applications%20with%20Docker%20Swarm/assets/lab3-reconcile_2.png">
 
+[Back to Index](#Index)
+&nbsp;    
+&nbsp;  
 
