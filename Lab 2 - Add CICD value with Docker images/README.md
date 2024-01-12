@@ -1,4 +1,4 @@
-# Lab 2 Summary
+# Lab 2 : Add CICD value with Docker images
 
 Sourced from : https://apps.cognitiveclass.ai/learning/course/course-v1:IBMDeveloperSkillsNetwork+CO0101EN+v1/home
 
@@ -50,9 +50,9 @@ def hello():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")' > app.py
-
 ```
-    This is a simple Python app that uses Flask to expose an HTTP web server on port 5000. (5000 is the default port for flask.) Don't worry if you are not too familiar with Python or Flask. These concepts can be applied to an application written in any language.
+
+This is a simple Python app that uses Flask to expose an HTTP web server on port 5000. (5000 is the default port for flask.) Don't worry if you are not too familiar with Python or Flask. These concepts can be applied to an application written in any language.
 
 2. Optional: If you have Python and pip installed, run this app locally. If not, move on to the next section of this lab.
 
