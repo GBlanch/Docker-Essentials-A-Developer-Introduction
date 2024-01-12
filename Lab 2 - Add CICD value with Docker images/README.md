@@ -299,10 +299,9 @@ def hello():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
-
 ```
 
-    Now that your application is updated, you need to rebuild your app and push it to the Docker Hub registry.
+Now that your application is updated, you need to rebuild your app and push it to the Docker Hub registry.
 
 2. Rebuild the app by using your Docker Hub username in the build command:
 
