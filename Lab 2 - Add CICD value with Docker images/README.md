@@ -1,4 +1,4 @@
-# Lab 2 : Add CICD value with Docker images
+# Lab 2 : Add CI/CD value with Docker images
 
 Sourced from : https://apps.cognitiveclass.ai/learning/course/course-v1:IBMDeveloperSkillsNetwork+CO0101EN+v1/home
 
