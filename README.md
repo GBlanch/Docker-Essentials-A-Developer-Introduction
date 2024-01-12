@@ -15,7 +15,8 @@
 
 #### [Proof of completion](https://www.credly.com/badges/f250e8b3-8b7b-4964-b47e-5a764e1f6259/linked_in_profile)
 
-![image](https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/assets/136500426/d94fcbd3-bc91-4d2e-8791-567067208880)
+![image](https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/assets/136500426/310b0d4b-ced7-43d6-ab22-b16e99f56995)
+
 
 
 
