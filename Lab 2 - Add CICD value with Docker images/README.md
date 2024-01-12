@@ -358,7 +358,7 @@ The "copy-on-write" function is very fast and in almost all cases, does not have
 
 
 <p align="center">
-<img src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%202%20-%20Add%20CICD%20value%20with%20Docker%20images/assets/rw%20and%20ils.png" width="70%" height="70%">
+<img src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%202%20-%20Add%20CICD%20value%20with%20Docker%20images/assets/rw%20and%20ils.png" width="50%" height="50%">
 
 
 Because image layers are read-only, *they can be shared by images and by running containers.* For example, creating a new Python application with its own Dockerfile with similar base layers will share all the layers that it had in common with the first Python application.
@@ -370,7 +370,7 @@ Because image layers are read-only, *they can be shared by images and by running
 
 
 <p align="center">
-<img src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%202%20-%20Add%20CICD%20value%20with%20Docker%20images/assets/unique%20and%20shared%20ls.png" width="70%" height="70%">
+<img src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%202%20-%20Add%20CICD%20value%20with%20Docker%20images/assets/unique%20and%20shared%20ls.png" width="50%" height="50%">
 
 
 
