@@ -222,8 +222,16 @@ Completing this lab creates several running containers on your host. Now, you'll
 
    **Tip**: You need to enter only enough digits of the ID to be unique. Three digits is typically adequate.
 
-4. Remove the stopped containers. The following command removes any stopped containers, unused volumes and networks, and dangling images:
+
+
+
+5. Remove the stopped containers. The following command removes any stopped containers, unused volumes and networks, and dangling images:
 
             $ docker system prune
 
 <img align="center" src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%201%20-%20Run%20your%20first%20container/assets/l1_remove_2.png">
+
+
+[Back to Index](#Index)
+&nbsp;    
+&nbsp;  
