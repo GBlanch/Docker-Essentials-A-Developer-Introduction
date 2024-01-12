@@ -445,3 +445,7 @@ Completing this lab results in a lot of running containers on your host. You'll 
             0b2ba61df37fb4038d9ae5d145740c63c2c211ae2729fc27dc01b82b5aaafa26
 
             Total reclaimed space: 300.3kB
+
+[Back to Index](#Index)
+&nbsp;    
+&nbsp;  
