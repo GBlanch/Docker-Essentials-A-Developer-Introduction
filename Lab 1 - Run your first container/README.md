@@ -8,6 +8,9 @@ Edited by G.Blanch
 &nbsp;  
 
 
+
+## Introduction 
+
 Containers are just a process (or a group of processes) running in isolation, which is achieved with Linux namespaces and control groups. Linux namespaces and control groups are features that are built into the Linux kernel. Other than the Linux kernel itself, there is nothing special about containers.
 
 ![image](https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/assets/136500426/10e9c5b8-e642-45a3-8536-1fe977547ff0)
