@@ -356,7 +356,9 @@ Each layer of the image is read-only except for the top layer, which is created 
 
 The "copy-on-write" function is very fast and in almost all cases, does not have a noticeable effect on performance. You can inspect which files have been pulled up to the container level with the docker diff command. For more information, see the command-line reference on the ```docker diff``` command.
 
-![image](https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/assets/136500426/1c3f47b7-c2f8-4179-9c5c-27495e982f28)
+
+<p align="center">
+<img src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%202%20-%20Add%20CICD%20value%20with%20Docker%20images/assets/rw%20and%20ils.png" width="70%" height="70%">
 
 
 Because image layers are read-only, *they can be shared by images and by running containers.* For example, creating a new Python application with its own Dockerfile with similar base layers will share all the layers that it had in common with the first Python application.
@@ -367,7 +369,8 @@ Because image layers are read-only, *they can be shared by images and by running
             COPY app2.py /app2.py
 
 
-![image](https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/assets/136500426/cc1ab323-e2af-4bba-acdb-db3b47d62189)
+<p align="center">
+<img src="https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/blob/main/Lab%202%20-%20Add%20CICD%20value%20with%20Docker%20images/assets/unique%20and%20shared%20ls.png" width="70%" height="70%">
 
 
 
