@@ -9,3 +9,7 @@
 
 ### [Lab 3. Orchestrate applications with Docker Swarm](https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/tree/main/Lab%203%20-%20Orchestrate%20applications%20with%20Docker%20Swarm)
 
+
+![image](https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/assets/136500426/d94fcbd3-bc91-4d2e-8791-567067208880)
+
+
