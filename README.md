@@ -13,7 +13,7 @@
 &nbsp;    
 &nbsp;  
 
-#### [Proof of completion](https://www.credly.com/badges/f250e8b3-8b7b-4964-b47e-5a764e1f6259/linked_in_profile)
+### [Proof of completion](https://www.credly.com/badges/f250e8b3-8b7b-4964-b47e-5a764e1f6259/linked_in_profile)
 
 ![image](https://github.com/GBlanch/Docker-Essentials-Developer-Introduction/assets/136500426/310b0d4b-ced7-43d6-ab22-b16e99f56995)
 
